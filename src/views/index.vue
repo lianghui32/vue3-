@@ -1,14 +1,14 @@
 <template>
   <el-container class="layout">
-    <el-header>
+    <el-header class="site-header">
       <my-header />
     </el-header>
 
-    <el-main>
+    <el-main class="site-main">
       <my-main-content />
     </el-main>
 
-    <el-footer>
+    <el-footer class="site-footer">
       <my-footer />
     </el-footer>
   </el-container>
@@ -27,23 +27,27 @@ import MyFooter from '@/layout/Footer.vue'
   flex-direction: column;
 }
 
-.el-header,
-.el-footer {
+.site-header {
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  /* background: rgba(255, 255, 255, 0.8); */
+}
+
+.site-main {
+  flex: 1;
   padding: 0;
 }
 
-.el-main {
-  flex: 1;
+.site-footer {
+  padding: 0;
 }
 
-.main-content {
-  padding: 50px;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+@media (max-width: 768px) {
+  .site-header {
+    height: auto;
+  }
 }
 </style>
